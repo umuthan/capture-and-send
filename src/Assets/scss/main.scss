@@ -1,0 +1,180 @@
+@import 'reset';
+@import 'fonts';
+
+$cancel-button-color: #4A4A4A;
+$capture-button-color: #BF3041;
+$ready-text-color: #228288;
+
+body {
+
+  overflow: hidden;
+  font-family: 'Gudea-Regular';
+
+}
+
+#app {
+
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  #camera {
+
+    background: #000000;
+    height: 85vh;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+
+    img {
+      width: auto;
+      height: 100%;
+      position: absolute;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      margin-left: auto;
+      margin-right: auto;
+      right: 0;
+    }
+
+    video {
+      position: absolute;
+      width:100%;
+      height: 100%;
+
+      &::-webkit-media-controls-play-button {
+        display: none !important;
+        -webkit-appearance: none;
+      }
+    }
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+    }
+
+    #flash {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: #ffffff;
+      opacity: 0;
+
+      &.flash {
+        animation: flash 750ms ease-out;
+      }
+    }
+
+  }
+
+  footer {
+
+    background: #ffffff;
+    height: 15vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .buttonContainer {
+
+      width: 33%;
+      align-items: center;
+      display: flex;
+      text-align: center;
+      flex-direction: column;
+
+    }
+
+    button {
+
+      border: none;
+      background: none;
+      font-family: 'Gudea-Bold';
+
+      &#cancel, &#ready {
+
+        font-size: 21px;
+
+      }
+
+      &#cancel {
+
+        color: $cancel-button-color;
+
+      }
+
+      &#ready {
+
+        color: $ready-text-color;
+
+      }
+
+      &#capture {
+
+        &:before, &:after {
+
+          position: absolute;
+          border-radius: 70px;
+          content: "";
+
+        }
+
+        &:before {
+
+          background: #FFFFFF;
+          height: 62px;
+          width: 62px;
+          top:4px;
+          left:4px;
+          z-index: 10;
+
+        }
+
+        &:after {
+
+          z-index: 20;
+          background: $capture-button-color;
+          height: 54px;
+          width: 54px;
+          top: 8px;
+          left: 8px;
+
+        }
+
+        &:active {
+          transition: transform 1s;
+        }
+
+        &:active:after {
+
+          transform: scale(.9);
+
+        }
+
+        position: relative;
+        background: $capture-button-color;
+        border-radius: 70px;
+        height: 70px;
+        width: 70px;
+
+      }
+
+    }
+
+  }
+
+}
+
+@keyframes flash{
+  0%{opacity: .75;}
+  100%{opacity: 0;}
+}
