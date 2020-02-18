@@ -1,6 +1,6 @@
 /**
- * Camera Challenge - Mail Server and API Component
- * https://umuthan@bitbucket.org/mieterengelgmbh/camera-challenge-umuthan-uyan
+ * Capture And Send - Server Config
+ * https://github.com:umuthan/capture-and-send.git
  *
  * Author: Umuthan Uyan
  *
